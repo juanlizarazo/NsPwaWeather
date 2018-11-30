@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { RouterModule } from '@angular/router';
+import { NativeScriptRouterModule as RouterModule } from 'nativescript-angular/router';
 
 import { routes } from './app.common';
 
