@@ -1,24 +1,18 @@
-<StackLayout>
-  <Label text="HomeComponent works" textWrap="true"></Label>
-  <Label text="This is a migrated component" textWrap="true"></Label>
-  <Label text="Update it to provide the UI elements required in your mobile app" textWrap="true"></Label>
-</StackLayout>
+<ActionBar title="{{ title }}" icon="" class="action-bar">
+  <ActionItem ios.position="right" (tap)="showPicker(cityPicker)">
+      <Button [text]="'ion-ios-plus-outline' | fonticon" style="font-size:30;" class="ion"></Button>
+  </ActionItem>
+  <ActionItem ios.position="right" (tap)="refreshForecast()">
+      <Button [text]="'fa-sync' | fonticon" style="font-size:30;" class="fa"></Button>
+  </ActionItem>
+</ActionBar>
 
-<!--
-Original Web template:
-
-<header class="header">
-  <h1 class="header__title">{{ title }}</h1>
-  <button id="butRefresh" class="headerButton" aria-label="Refresh" (click)="refreshForecast()"></button>
-  <button id="butAdd" class="headerButton" aria-label="Add" (click)="showPicker(cityPicker)"></button>
-</header>
-
-<main class="main" #main>
-  <div *ngFor="let forecast of forecasts">
-    <app-weather-card [forecast]="forecast"></app-weather-card>
-  </div>
-</main>
-
-<app-city-picker #cityPicker (closePicker)="hidePicker()"></app-city-picker>
-<app-spinner [isBusy]="isBusy"></app-spinner>
--->
+<GridLayout>
+  <ScrollView>
+      <StackLayout>
+          <app-weather-card [forecast]="forecast" *ngFor="let forecast of forecasts"></app-weather-card>
+      </StackLayout>
+  </ScrollView>
+  <app-city-picker #cityPicker (closePicker)="hidePicker()"></app-city-picker>
+  <app-spinner [isBusy]="isBusy"></app-spinner>
+</GridLayout>

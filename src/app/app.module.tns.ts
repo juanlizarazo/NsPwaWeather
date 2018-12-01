@@ -6,6 +6,9 @@ import { AppComponent } from './app.component';
 
 require( "nativescript-localstorage" );
 
+import { registerElement } from "nativescript-angular/element-registry";
+registerElement("FilterableListpicker", () => require("nativescript-filterable-listpicker").FilterableListpicker);
+
 // Uncomment and add to NgModule imports if you need to use two-way binding
 import { NativeScriptFormsModule } from 'nativescript-angular/forms';
 
@@ -21,7 +24,7 @@ import { sharedProviders } from './app.common';
     NativeScriptModule,
     NativeScriptHttpClientModule,
     NativeScriptFormsModule,
-    AppRoutingModule,
+    AppRoutingModule
   ],
   providers: [ ...sharedProviders ],
   bootstrap: [AppComponent],
